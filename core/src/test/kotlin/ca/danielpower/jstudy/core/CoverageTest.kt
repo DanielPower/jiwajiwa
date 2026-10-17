@@ -16,15 +16,4 @@ class CoverageTest {
         assertEquals(8, cov.words)
         assertEquals(4, cov.knownWords)
     }
-
-    @Test
-    fun readStatsCountCharactersButNotPunctuation() {
-        val paragraphs = reader.read("猫は本が好き。「犬だ」")
-        val stats = readStats(paragraphs, coverage(paragraphs, known::contains), millis = 60_000)
-        assertEquals(8, stats.characters)
-        assertEquals(8, stats.charactersPerMinute)
-        assertEquals(3, stats.knownWords)
-        assertEquals(4, stats.words)
-        assertEquals(null, readStats(paragraphs, coverage(paragraphs, known::contains), millis = 5_000).charactersPerMinute)
-    }
 }

@@ -147,7 +147,8 @@ class Reviewer(
             lastReviewAt = now,
             reps = card.reps + 1,
             lapses = card.lapses + if (card.state == CardState.REVIEW && !correct) 1 else 0,
-            introducedDay = card.introducedDay ?: today,
+            // A word marked known starts as a review, and never counts as a new word.
+            introducedDay = card.introducedDay ?: today.takeIf { card.state != CardState.REVIEW },
         )
         return Answer(
             card = updated,

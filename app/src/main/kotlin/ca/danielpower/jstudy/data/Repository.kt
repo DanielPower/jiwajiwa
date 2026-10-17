@@ -800,11 +800,29 @@ class Repository(context: Context) {
         val isKnown = known(store.wordStatuses())
         val ids = StoryPath.words(reader, story.body, readings(story), names(story)).mapNotNull { it.wordId }.distinct()
             .filter { !isKnown(it) && dictionary.word(it) != null }
-        for (id in ids) {
-            store.transaction { db -> if (recognitionCard(id) == null) store.insertNewCard(db, id, Direction.RECOGNITION, 0) }
-            recognitionCard(id)?.takeIf { it.state == CardState.NEW }?.let { introduce(it, now) }
-        }
+        for (id in ids) start(id, now)
         return ids
+    }
+
+    /**
+     * A word a story just started that you already know: known now, and no
+     * longer counted against today's new words.
+     */
+    fun knowStartedWord(wordId: Long, now: Long) {
+        markKnown(wordId, MasteryRules.HIDE_AT, now)
+        val card = recognitionCard(wordId) ?: return
+        store.transaction { db -> store.updateCard(db, card.copy(introducedDay = null)) }
+    }
+
+    /** Undo [knowStartedWord]: new again, as the story started it. */
+    fun unknowStartedWord(wordId: Long, now: Long) {
+        reset(wordId)
+        start(wordId, now)
+    }
+
+    private fun start(wordId: Long, now: Long) {
+        store.transaction { db -> if (recognitionCard(wordId) == null) store.insertNewCard(db, wordId, Direction.RECOGNITION, 0) }
+        recognitionCard(wordId)?.takeIf { it.state == CardState.NEW }?.let { introduce(it, now) }
     }
 
     /** Mastery of each of [ids] you've started. */
