@@ -1,0 +1,7 @@
+{
+  "title": "Kenta's lunch",
+  "blurb": "Tanaka-san has a huge lunch, so Kenta wants one too.",
+  "after": ["kentas-first-job/kentas-room"],
+  "side": true,
+  "chapters": ["kentas-lunch"]
+}

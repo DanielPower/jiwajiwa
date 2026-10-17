@@ -1,0 +1,7 @@
+{
+  "title": "The fireworks photo",
+  "blurb": "Alex sends his mom the photo from the festival.",
+  "after": ["share-house/fireworks"],
+  "side": true,
+  "chapters": ["fireworks-photo"]
+}

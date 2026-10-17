@@ -273,7 +273,7 @@ Story path (Daniel, 2026-10-14; chapters since 2026-10-15; merged into main 2026
   `story` table by `path_id`, with when you read them; rows the app no
   longer ships are removed when it syncs.
 - A chapter opens on its own once it's within reach (`StoryPath.gap`): new
-  words at most 3% of its running words, from 3 to 10; and no grammar
+  words at most 3% of its running words, and at least 3; and no grammar
   point you haven't seen, other than its own topic. Tapping a locked chapter shows what it's missing and
   the open chapters with the most of it.
 - Grammar comes in as topics (one or more related points, like から/まで),

@@ -1,0 +1,18 @@
+{
+  "title": "One more game",
+  "plot": "A last game night in Kenta's tidied room: Alex finally wins, then Yuki joins and beats them both.",
+  "paragraphs": [
+    [["ケンタの部屋。", "Kenta's room."], ["ゴミは…多くない！", "The trash… isn't piled up!"]],
+    [["アレックス|「ケンタ、部屋がきれい！」", "\"Kenta, your room's clean!\""], ["ケンタ|「…最後の夜だから。」", "\"…It's the last night.\""]],
+    [["ケンタ|「これ、やる？」", "\"Want to play this?\""], ["アレックス|「やる！」", "\"Sure!\""]],
+    [["アレックス|「…負けた。」", "\"…I lost.\""], ["アレックス|「もう一回！」", "\"Again!\""]],
+    [["アレックス|「…負けた！」", "\"…Lost again!\""], ["ケンタ|「もう一回？」", "\"Again?\""], ["アレックス|「もう一回！」", "\"Again!\""]],
+    [["ケンタ|「…負けた。」", "\"…I lost.\""], ["アレックス|「ケンタが負けた！？本当に？」", "\"You lost!? Really?\""], ["ケンタ|「…本当に。」", "\"…Really.\""]],
+    [["ユキが来た。", "Yuki came in."], ["ユキ|「うるさいよ。」", "\"You're loud.\""], ["ユキ|「…でも、ユキもやる。」", "\"…But I'm playing too.\""]],
+    [["アレックスが負けた。", "Alex lost."], ["ケンタも負けた。", "So did Kenta."], ["ユキ|「でしょ？」", "\"Told you.\""]],
+    [["ユキ|「アレックス、もう一回？」", "\"Again, Alex?\""], ["アレックス|「もう一回！」", "\"Again!\""], ["…負けた。", "…Lost."]],
+    [["ユキ|「アレックス、カナダは寒い？」", "\"Is Canada cold?\""], ["アレックス|「寒い！雪も多い！」", "\"Freezing! Lots of snow too!\""]],
+    [["外は、雪だ。", "Outside, it's snowing."], ["寒い夜だ。", "A cold night."], ["でも、いい夜だ。", "But a good one."]],
+    [["アレックス|「来年も、一緒にゲーム！」", "\"Games together next year too!\""], ["ケンタ|「カナダから？」", "\"From Canada?\""], ["アレックス|「カナダから！」", "\"From Canada!\""]]
+  ]
+}

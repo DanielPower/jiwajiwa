@@ -1,0 +1,7 @@
+{
+  "title": "All of it (全部)",
+  "blurb": "Alex has two days left in Tokyo and wants all of it: games, the snowy park, Shimokitazawa, and everyone at the airport.",
+  "after": ["yukis-song/after-the-show"],
+  "side": true,
+  "chapters": ["the-snowy-park", "shimokitazawa-again", "the-airport"]
+}

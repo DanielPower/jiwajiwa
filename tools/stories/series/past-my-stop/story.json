@@ -1,0 +1,7 @@
+{
+  "title": "Past my stop",
+  "blurb": "A night of Yuki singing through the wall, and Kenta sleeps through his station.",
+  "after": ["yukis-song/every-night"],
+  "side": true,
+  "chapters": ["past-my-stop"]
+}

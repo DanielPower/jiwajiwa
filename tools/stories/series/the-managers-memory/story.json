@@ -1,0 +1,7 @@
+{
+  "title": "The manager remembers",
+  "blurb": "A bowl of ramen alone at the manager's shop, and his memories of Alex's first night.",
+  "after": ["yukis-song/the-words"],
+  "side": true,
+  "chapters": ["the-managers-memory"]
+}

@@ -1,0 +1,7 @@
+{
+  "title": "The wait",
+  "blurb": "The beer comes first. The ramen takes its time.",
+  "after": ["ramen-night/which-one"],
+  "side": true,
+  "chapters": ["the-wait"]
+}

@@ -1,0 +1,28 @@
+{
+  "title": "A busy night",
+  "plot": "Eating alone at the ramen shop, Sora finds the manager on his own on a packed night, helps carry water and beer until closing, and gets ramen with egg for it.",
+  "paragraphs": [
+    [["夜だ。", "Night."], ["ユキさんは、友達のバンドのライブだ。", "Yuki's playing a gig with her friend's band."], ["ケンタさんは、まだ会社だ。", "Kenta's still at work."]],
+    [["僕は一人で、ラーメンの店に来た。", "I came to the ramen shop by myself."]],
+    [["店長|「いらっしゃいませ！」", "\"Welcome!\""], ["店が、うるさい。", "The shop is loud."], ["人が多い。", "It's packed."]],
+    [["店長|「あ、ソラさん！こんばんは！」", "\"Oh, Sora! Good evening!\""], ["店長は、一人だ。", "The manager is on his own."]],
+    [["ソラ|「店長、今日は一人ですか？」", "\"Are you on your own tonight?\""], ["店長|「はい。バイトの人が、休みなんです。」", "\"Yes. My part-timer has the night off.\""]],
+    [["男の人|「すみません！水、お願いします！」", "\"Excuse me! Water, please!\""], ["女の人|「ビール、お願いします！」", "\"A beer, please!\""]],
+    [["店長|「はい！ちょっと待ってください！」", "\"Coming! Just a moment!\""]],
+    [["ソラ|「店長、大丈夫ですか？」", "\"Are you OK?\""], ["店長|「…大丈夫です。」", "\"…I'm fine.\""]],
+    [["大丈夫じゃない。", "He's not fine."]],
+    [["ソラ|「あのー、僕もやります！」", "\"Um, let me help!\""]],
+    [["店長|「本当に？…じゃあ、水を、お願いします。」", "\"Really? …Then, the water, please.\""]],
+    [["水、水、ビール、水。", "Water, water, beer, water."], ["ラーメン、ラーメン、ラーメン。", "Ramen, ramen, ramen."]],
+    [["男の人|「卵も、お願いします！」", "\"An egg too, please!\""], ["ソラ|「えーと…はい！」", "\"Um… right!\""]],
+    [["夜だけど、まだ人が多い。", "It's late, but the shop's still full."]],
+    [["みんな、帰った。", "At last, everyone went home."], ["店は、もう、うるさくない。", "The shop isn't loud anymore."]],
+    [["ソラ|「…疲れた。」", "\"…I'm beat.\""]],
+    [["店長|「ソラさん、本当に、ありがとう。」", "\"Sora, thank you so much.\""], ["店長|「ラーメン、食べてください。卵も！」", "\"Have some ramen. With an egg!\""]],
+    [["ラーメンを食べた。", "I ate the ramen."], ["熱い。", "Hot."], ["うまい。", "Delicious."]],
+    [["店長|「アレックスさんも、ここでバイトをしていたんですよ。」", "\"Alex used to work here too, you know.\""], ["ソラ|「はい、知っています。」", "\"Yes, I know.\""]],
+    [["部屋に帰った。", "I went home."], ["ユキ|「ソラ、どうしたの？疲れてるね。」", "\"Sora, what happened? You look wiped out.\""]],
+    [["ソラ|「ラーメンの店で…仕事。」", "\"At the ramen shop… work.\""], ["ユキ|「仕事？」", "\"Work?\""]],
+    [["ソラ|「今日は、僕も店長のバイト。」", "\"Tonight, I was the manager's part-timer too.\""], ["ユキ|「アレックスと、同じだね。」", "\"Just like Alex.\""]]
+  ]
+}

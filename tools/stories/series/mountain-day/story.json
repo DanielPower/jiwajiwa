@@ -1,0 +1,11 @@
+{
+  "title": "Mountain day",
+  "blurb": "The studio is an oven, so Daichi has an idea: a day in the mountains, where it isn't hot.",
+  "after": ["the-band/the-string"],
+  "side": true,
+  "chapters": [
+    "too-hot",
+    "up-the-mountain",
+    "mountain-rain"
+  ]
+}

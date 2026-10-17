@@ -1,0 +1,7 @@
+{
+  "title": "Miho's reader",
+  "blurb": "A kid at the manga shop loves the manga in Miho's magazine, and has no idea who drew it.",
+  "after": ["yukis-song/the-flyers"],
+  "side": true,
+  "chapters": ["mihos-reader"]
+}

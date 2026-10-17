@@ -1,0 +1,14 @@
+{
+  "title": "Alex's coffee",
+  "plot": "Alex makes the morning coffee; it's hot, it's good, and Kenta wakes up.",
+  "paragraphs": [
+    [["朝だ。", "Morning."], ["朝のコーヒーは、アレックスがやる！", "Alex is on coffee this morning!"]],
+    [["アレックス|「ユキ、おはよう！コーヒー、飲む？」", "\"Morning, Yuki! Coffee?\""], ["ユキ|「アレックスのコーヒー？」", "\"Your coffee?\""], ["アレックス|「うん！」", "\"Yep!\""]],
+    [["ユキ|「…熱い！」", "\"…Hot!\""], ["アレックス|「ゆっくりね。」", "\"Take it slow.\""]],
+    [["ユキ|「でも、うまい。ありがとう。」", "\"But it's good. Thanks.\""]],
+    [["ケンタが来た。", "Kenta came in."], ["ケンタ|「…おはよう。眠い…」", "\"…Morning. So sleepy…\""]],
+    [["アレックス|「ケンタも飲む？」", "\"Want some too, Kenta?\""], ["ケンタ|「…飲む。」", "\"…Yeah.\""]],
+    [["ケンタ|「…うまい。」", "\"…That's good.\""], ["ケンタ|「眠くない！」", "\"I'm awake!\""], ["アレックス|「でしょ？」", "\"Right?\""]],
+    [["ケンタ|「アレックス、今夜、ゲーム！」", "\"Alex, games tonight!\""], ["アレックス|「やる！」", "\"I'm in!\""]]
+  ]
+}

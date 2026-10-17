@@ -1,0 +1,7 @@
+{
+  "title": "The missing manga",
+  "blurb": "Alex's new manga has vanished, and there's one obvious suspect.",
+  "after": ["share-house/the-bass-upstairs"],
+  "side": true,
+  "chapters": ["missing-manga"]
+}

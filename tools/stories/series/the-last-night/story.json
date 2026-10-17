@@ -1,0 +1,7 @@
+{
+  "title": "The last night",
+  "blurb": "Alex's last night in the share house: too much manga to pack, and one more game.",
+  "after": ["share-house/the-last-shift"],
+  "side": true,
+  "chapters": ["packing", "one-more-game"]
+}

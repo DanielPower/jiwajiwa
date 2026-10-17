@@ -1,0 +1,21 @@
+{
+  "title": "Hot ramen, hot day",
+  "plot": "A summer shift where every customer wants water; then Yuki and Kenta come in for ramen anyway.",
+  "paragraphs": [
+    [["夏だ。", "Summer."], ["今日は、バイトだ。", "Work today."]],
+    [["店は暑い。", "The shop is hot."], ["ラーメンも熱い。", "So is the ramen."]],
+    [["アレックス|「いらっしゃいませ！」", "\"Welcome!\""]],
+    [["男の人|「すみません、水、お願いします。」", "\"Excuse me, water, please.\""], ["アレックス|「はい、ちょっと待ってください！」", "\"Yes, one moment!\""]],
+    [["女の人|「すみません、水も！」", "\"Excuse me, water here too!\""], ["アレックス|「はい！」", "\"Coming!\""]],
+    [["水、水、水。", "Water, water, water."], ["ラーメン、水、ラーメン、水。", "Ramen, water, ramen, water."]],
+    [["店長|「アレックスさん、これ、お願いします！」", "\"Alex, this one, please!\""], ["アレックス|「はい！」", "\"Yes!\""]],
+    [["お腹すいた…暑い…", "Hungry… hot…"]],
+    [["アレックス|「店長、今日は水が多いですね。」", "\"Manager, lots of water today.\""], ["店長|「夏ですね。」", "\"It's summer.\""]],
+    [["店長|「アレックスさんも、水を飲んでください。」", "\"You drink some water too, Alex.\""], ["アレックス|「はい！」", "\"Will do!\""]],
+    [["ユキが来た。", "Later, Yuki came in."], ["ケンタも来た。", "Kenta too."]],
+    [["ケンタ|「暑い…水…」", "\"Hot… water…\""], ["アレックス|「ラーメンは？」", "\"And ramen?\""], ["ケンタ|「ラーメンも！」", "\"Ramen too!\""]],
+    [["ユキ|「夏のラーメンも、うまいね。」", "\"Ramen's good in summer too.\""]],
+    [["アレックス|「熱い！暑い！」", "\"Hot ramen! Hot day!\""], ["ケンタ|「でも、うまい！」", "\"But good!\""]],
+    [["ケンタ|「アレックス、水、もう一回！」", "\"Alex, more water!\""], ["アレックス|「…はい！」", "\"…Coming!\""]]
+  ]
+}

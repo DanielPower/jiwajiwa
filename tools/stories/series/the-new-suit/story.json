@@ -1,0 +1,7 @@
+{
+  "title": "The new suit",
+  "blurb": "Kenta's one suit has lived with his trash long enough.",
+  "after": ["kentas-first-job/secrets"],
+  "side": true,
+  "chapters": ["the-new-suit"]
+}

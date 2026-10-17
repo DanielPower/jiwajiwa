@@ -1,0 +1,7 @@
+{
+  "title": "Drums next door",
+  "blurb": "Late at night, Sora hears drums coming from Kenta's room. Kenta doesn't have any drums.",
+  "after": ["the-band/if-i-can-go"],
+  "side": true,
+  "chapters": ["drums-next-door"]
+}

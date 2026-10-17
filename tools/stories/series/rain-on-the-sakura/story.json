@@ -1,0 +1,7 @@
+{
+  "title": "Rain on the sakura",
+  "blurb": "The day after hanami, it rains. Alex goes to the park anyway.",
+  "after": ["share-house/hanami"],
+  "side": true,
+  "chapters": ["rain-on-the-sakura"]
+}

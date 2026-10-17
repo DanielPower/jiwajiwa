@@ -1,0 +1,7 @@
+{
+  "title": "The other entry",
+  "blurb": "Every day, a young man comes into the manga shop, reads the contest, and leaves without buying the magazine. Miho wants to know why.",
+  "after": ["mihos-manga/the-publisher"],
+  "side": true,
+  "chapters": ["the-other-entry"]
+}

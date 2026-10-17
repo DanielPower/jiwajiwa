@@ -1,0 +1,7 @@
+{
+  "title": "Who ate the ice cream?",
+  "blurb": "Kenta's ice cream has gone, and everyone in the house is a suspect.",
+  "after": ["yukis-song/the-last-song"],
+  "side": true,
+  "chapters": ["the-missing-ice-cream"]
+}

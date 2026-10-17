@@ -35,12 +35,12 @@ class StoryPathTest {
     }
 
     @Test
-    fun `the new word allowance is 3 percent of running words, from 3 to 10`() {
+    fun `the new word allowance is 3 percent of running words, and at least 3`() {
         fun allowance(running: Int) = StepNeeds(emptyList(), running, emptySet(), emptySet()).allowance
         assertEquals(3, allowance(10))
         assertEquals(3, allowance(133))
         assertEquals(6, allowance(200))
-        assertEquals(10, allowance(1000))
+        assertEquals(30, allowance(1000))
     }
 
     @Test

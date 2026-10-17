@@ -1,0 +1,7 @@
+{
+  "title": "Ramen for Kenta",
+  "blurb": "Kenta got the job. That calls for ramen, and the manager has a surprise.",
+  "after": ["share-house/autumn"],
+  "side": true,
+  "chapters": ["ramen-for-kenta"]
+}

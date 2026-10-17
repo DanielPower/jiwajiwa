@@ -1,0 +1,7 @@
+{
+  "title": "New strings",
+  "blurb": "The weekend after the show, Rin goes to buy guitar strings on her own, and keeps running into people who were there.",
+  "after": ["yukis-song/after-the-show"],
+  "side": true,
+  "chapters": ["new-strings"]
+}

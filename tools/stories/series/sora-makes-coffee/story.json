@@ -1,0 +1,7 @@
+{
+  "title": "Sora makes coffee",
+  "blurb": "Yuki always makes the coffee. This morning, Sora tries.",
+  "after": ["the-band/a-call-from-alex"],
+  "side": true,
+  "chapters": ["sora-makes-coffee"]
+}

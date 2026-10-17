@@ -1,0 +1,13 @@
+{
+  "title": "Wrong room",
+  "plot": "Alex can't find his room and walks into Yuki's.",
+  "paragraphs": [
+    [["部屋は…どこ？", "Which one's my room…?"]],
+    [["ここ？", "This one?"], ["あ、きれいな部屋だ。", "Oh, a nice room."]],
+    [["ユキ|「アレックス？」", "\"Alex?\""]],
+    [["アレックス|「あ…ここ、ユキの部屋？」", "\"Oh… is this your room?\""], ["ユキ|「うん。」", "\"Yep.\""]],
+    [["ユキ|「アレックスの部屋は、あっちだよ。」", "\"Yours is over there.\""], ["アレックス|「わからない…部屋が多い！」", "\"I can't tell… there are so many rooms!\""]],
+    [["ユキ|「多くないよ。」", "\"There really aren't.\""]],
+    [["アレックスの部屋だ。", "My room."], ["外は、ビル。", "Buildings out the window."], ["うん、いい部屋だ。", "Yeah. Good room."]]
+  ]
+}

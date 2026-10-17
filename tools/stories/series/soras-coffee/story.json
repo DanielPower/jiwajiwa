@@ -1,0 +1,7 @@
+{
+  "title": "Sora's coffee",
+  "blurb": "Yuki's coffee every morning, and a new housemate too polite to say no.",
+  "after": ["new-housemate/the-ramen-shop"],
+  "side": true,
+  "chapters": ["soras-coffee"]
+}

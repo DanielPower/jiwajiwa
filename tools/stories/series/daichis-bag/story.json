@@ -1,0 +1,7 @@
+{
+  "title": "Daichi's bag",
+  "blurb": "The night before the festival, Daichi packs for every possible disaster.",
+  "after": ["the-band/the-night-before"],
+  "side": true,
+  "chapters": ["daichis-bag"]
+}

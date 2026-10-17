@@ -1,0 +1,7 @@
+{
+  "title": "Hot ramen, hot day",
+  "blurb": "Summer at the ramen shop: hot bowls, a hot kitchen, and everyone wants water.",
+  "after": ["share-house/summer"],
+  "side": true,
+  "chapters": ["hot-day"]
+}

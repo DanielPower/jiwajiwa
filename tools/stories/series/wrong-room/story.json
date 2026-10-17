@@ -1,0 +1,7 @@
+{
+  "title": "Wrong room",
+  "blurb": "A new house, a lot of doors, and only one of them is Alex's.",
+  "after": ["arrival/the-room"],
+  "side": true,
+  "chapters": ["wrong-room"]
+}

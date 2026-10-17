@@ -133,8 +133,8 @@ data class StepNeeds(
     /** The grammar points it teaches, for a lesson. */
     val teaches: Set<String>,
 ) {
-    /** How many new words it may have: 3% of its running words, from [StoryPath.MIN_NEW] to [StoryPath.MAX_NEW]. */
-    val allowance get() = (running * 3 / 100).coerceIn(StoryPath.MIN_NEW, StoryPath.MAX_NEW)
+    /** How many new words it may have: 3% of its running words, and at least [StoryPath.MIN_NEW]. */
+    val allowance get() = (running * 3 / 100).coerceAtLeast(StoryPath.MIN_NEW)
 }
 
 /** What a step's [needs] leave to learn, for someone who knows some of it. */
@@ -151,7 +151,6 @@ data class StepGap(val words: List<StepWord>, val grammar: List<String>, val all
  */
 object StoryPath {
     const val MIN_NEW = 3
-    const val MAX_NEW = 10
 
     fun parse(json: String): StoryCatalog {
         val root = Json.parseToJsonElement(json).jsonObject

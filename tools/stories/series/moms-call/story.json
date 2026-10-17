@@ -1,0 +1,7 @@
+{
+  "title": "Mom's call",
+  "blurb": "The last page is nearly done, and Miho's mom calls to ask what she's been eating.",
+  "after": ["mihos-manga/the-ending"],
+  "side": true,
+  "chapters": ["moms-call"]
+}

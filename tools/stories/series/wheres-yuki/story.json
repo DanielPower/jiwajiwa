@@ -1,0 +1,7 @@
+{
+  "title": "Where's Yuki?",
+  "blurb": "The morning after the first practice, Yuki's room is silent, and Sora starts to worry.",
+  "after": ["the-band/the-studio"],
+  "side": true,
+  "chapters": ["wheres-yuki"]
+}

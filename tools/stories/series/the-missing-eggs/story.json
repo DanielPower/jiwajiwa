@@ -1,0 +1,7 @@
+{
+  "title": "The missing eggs",
+  "blurb": "Sora's eggs are gone by morning, and only one person came home late.",
+  "after": ["new-housemate/the-morning-after"],
+  "side": true,
+  "chapters": ["the-missing-eggs"]
+}

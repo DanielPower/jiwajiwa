@@ -1,0 +1,7 @@
+{
+  "title": "Last summer",
+  "blurb": "The band is in, Kenta is home late, and over a beer he tells Sora about last year's festival.",
+  "after": ["the-band/were-in"],
+  "side": true,
+  "chapters": ["last-summer"]
+}

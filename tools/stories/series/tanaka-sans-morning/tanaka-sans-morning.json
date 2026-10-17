@@ -1,0 +1,18 @@
+{
+  "title": "Tanaka-san's morning",
+  "plot": "Tanaka-san is first in as always; sleepy Kenta greets her too casually, gets coffee anyway, and wakes right up when she suggests ramen for lunch.",
+  "paragraphs": [
+    [["朝だ。", "Morning."], ["会社には、まだ誰もいない。", "There's no one at the office yet."]],
+    [["田中さんが来た。", "Tanaka-san arrives."], ["田中さんは、いつも朝から会社にいる。", "She's always in first thing."]],
+    [["田中さんは、コーヒーを飲む。", "She drinks her coffee."], ["机で、ゲームを始める。", "At her desk, she starts on the game."]],
+    [["仕事のゲームだ。", "It's the game for work."], ["でも、田中さんは、ゲームが好きだ。", "But she loves games anyway."]],
+    [["ケンタが来た。", "Kenta arrives."], ["スーツのケンタは、眠い。", "Kenta, in his suit, is sleepy."]],
+    [["ケンタ|「おはよう…あ、すみません！」", "\"Mornin'… oh, I'm sorry!\""]],
+    [["田中|「ケンタさん、眠いですか？」", "\"Are you sleepy, Kenta-san?\""], ["ケンタ|「…はい。」", "\"…Yes.\""]],
+    [["田中|「コーヒー、飲みませんか？」", "\"Would you like some coffee?\""], ["ケンタ|「ありがとうございます！」", "\"Thank you!\""]],
+    [["田中|「じゃあ、始めましょうか。」", "\"Well then, shall we start?\""], ["ケンタ|「はい！」", "\"Yes!\""]],
+    [["ケンタは、ゲームをしている。", "Kenta plays the game."], ["田中さんも、ゲームをしている。", "So does Tanaka-san."]],
+    [["お昼だ。", "Lunchtime."], ["田中|「ケンタさん、今日も、ラーメンの店に行きませんか？」", "\"Kenta-san, shall we go to the ramen place again today?\""]],
+    [["ケンタ|「行きます！」", "\"I'm in!\""], ["ケンタは、もう眠くない。", "Kenta isn't sleepy anymore."]]
+  ]
+}
