@@ -62,13 +62,19 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withLink
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -613,13 +619,16 @@ fun StoryReaderScreen(state: Screen.StoryReader, vm: AppViewModel) {
                     modifier = Modifier.align(Alignment.Center).padding(horizontal = 32.dp),
                 )
                 o.sentence -> SentenceCard(openSentence?.translation)
-                openWord != null -> WordCard(
-                    word = openWord,
-                    reading = reading,
-                    forgotten = state.forgotten,
-                    onForgot = vm::toggleForgot,
-                    onLesson = vm::openGrammar,
-                )
+                // Keyed by place, so a grammar point followed in one word's card doesn't carry over to the next word.
+                openWord != null -> key(o.p, o.i) {
+                    WordCard(
+                        word = openWord,
+                        reading = reading,
+                        forgotten = state.forgotten,
+                        onForgot = vm::toggleForgot,
+                        onLesson = vm::openGrammar,
+                    )
+                }
             }
         }
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
@@ -1155,7 +1164,11 @@ internal fun NoteMarker(textSize: TextUnit, family: FontFamily, open: Boolean, o
     }
 }
 
-/** The open word's card: its meanings, conjugation and grammar, and what to do with it. */
+/**
+ * The open word's card: its meanings, conjugation and grammar, and what to do with it.
+ * A word's grammar points are named in its conjugation line, and one tapped there
+ * takes the card's place until you go back.
+ */
 @Composable
 private fun WordCard(
     word: ReadingWord,
@@ -1167,13 +1180,22 @@ private fun WordCard(
     val entry = word.wordId?.let { reading.words[it] }
     // A particle or ending on its own: the card explains its grammar and has no dictionary entry.
     val grammarOnly = word.kind == WordKind.GRAMMAR
+    val points = word.grammar.map { it.point }.distinctBy { it.id }
+    // The topic's page, unless that's the page you're on.
+    fun lessonFor(point: GrammarPoint): (() -> Unit)? = reading.lessons[point.id]?.takeIf { it != reading.story.id }?.let { id -> { onLesson(id) } }
+    var followed by remember { mutableStateOf<GrammarPoint?>(null) }
+    val title = if (grammarOnly) word.surface else entry?.display ?: word.lemma
+    followed?.let { point ->
+        BackHandler { followed = null }
+        GrammarCard(point, back = title, onBack = { followed = null }, onLesson = lessonFor(point))
+        return
+    }
     // Centred when it all fits. When the meanings scroll they take the spare room, so the card fills the pane from the top.
     Column(
         Modifier.fillMaxSize().padding(start = 20.dp, end = 4.dp, top = 8.dp, bottom = 4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterVertically),
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            val title = if (grammarOnly) word.surface else entry?.display ?: word.lemma
             Text(title, fontFamily = Gothic, fontWeight = FontWeight.Bold, fontSize = 22.sp, modifier = Modifier.weight(1f, fill = false))
             val kana = entry?.kana ?: word.reading
             if (!grammarOnly && kana != title) {
@@ -1184,7 +1206,9 @@ private fun WordCard(
             Modifier.weight(1f, fill = false).verticalScroll(rememberScrollState()).padding(end = 16.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
-            if (word.conjugated) {
+            if (!grammarOnly && points.isNotEmpty()) {
+                GrammarLinks(word, title, points, onOpen = { followed = it })
+            } else if (word.conjugated) {
                 Text(
                     "${word.surface}: ${word.conjugation.joinToString(", ")}",
                     style = MaterialTheme.typography.bodyMedium,
@@ -1232,39 +1256,100 @@ private fun WordCard(
                     }
                 }
             }
-            for (use in word.grammar.distinctBy { it.point.id }) {
-                // The topic's page, unless that's the page you're on.
-                val lesson = reading.lessons[use.point.id]?.takeIf { it != reading.story.id }
-                GrammarNote(use.point, lesson?.let { { onLesson(it) } })
+            // A word's grammar is behind its conjugation line; a particle's is all there is to show.
+            if (grammarOnly) {
+                for (point in points) GrammarNote(point, lessonFor(point))
             }
         }
     }
 }
 
-/** One grammar point in the word card: the pattern, what it means, an example, and [onLesson] for its topic's page. */
+/**
+ * A word's conjugation line naming its grammar points, each a link to its
+ * explanation: 食べたい: ～たい want to ›. It takes the place of the word's
+ * conjugation labels.
+ */
+@Composable
+private fun GrammarLinks(word: ReadingWord, title: String, points: List<GrammarPoint>, onOpen: (GrammarPoint) -> Unit) {
+    val link = TextLinkStyles(SpanStyle(color = MaterialTheme.colorScheme.secondary, fontWeight = FontWeight.Bold))
+    Text(
+        buildAnnotatedString {
+            if (word.surface != title) append("${word.surface}: ")
+            points.forEachIndexed { i, point ->
+                if (i > 0) append("  ·  ")
+                withLink(LinkAnnotation.Clickable(point.id, link) { onOpen(point) }) {
+                    append(point.pattern)
+                    withStyle(SpanStyle(fontWeight = FontWeight.Normal)) { append(" ${point.meaning} ›") }
+                }
+            }
+        },
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.tertiary,
+    )
+}
+
+/** A grammar point followed from a word's conjugation line, with ‹ [back] to the word. */
+@Composable
+private fun GrammarCard(point: GrammarPoint, back: String, onBack: () -> Unit, onLesson: (() -> Unit)?) {
+    Column(
+        Modifier.fillMaxSize().padding(start = 20.dp, end = 4.dp, top = 8.dp, bottom = 4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterVertically),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text(
+                "‹ $back",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.secondary,
+                maxLines = 1,
+                modifier = Modifier.clickable(onClickLabel = "Back to $back", onClick = onBack).padding(vertical = 6.dp),
+            )
+            Text(point.pattern, fontFamily = Gothic, fontWeight = FontWeight.Bold, fontSize = 22.sp)
+            GrammarLevel(point, onLesson)
+        }
+        Column(
+            Modifier.weight(1f, fill = false).verticalScroll(rememberScrollState()).padding(end = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp),
+        ) {
+            GrammarBody(point)
+        }
+    }
+}
+
+/** One grammar point in a particle's card: the pattern, what it means, an example, and [onLesson] for its topic's page. */
 @Composable
 private fun GrammarNote(point: GrammarPoint, onLesson: (() -> Unit)?) {
     Column(verticalArrangement = Arrangement.spacedBy(2.dp), modifier = Modifier.padding(top = 2.dp)) {
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.padding(top = 4.dp)) {
             Text(point.pattern, fontFamily = Gothic, fontWeight = FontWeight.Bold, fontSize = 17.sp)
-            Text(
-                ui("Grammar", "文法") + "  ·  " + levelLabel(point.level),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.weight(1f),
-            )
-            if (onLesson != null) {
-                TextButton(onClick = onLesson) {
-                    Text("Lesson →", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary)
-                }
-            }
+            GrammarLevel(point, onLesson)
         }
-        Text(point.meaning, fontSize = 16.sp, lineHeight = 21.sp)
-        Text(point.note, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Text(point.example, fontFamily = Gothic, fontSize = 15.sp, modifier = Modifier.padding(top = 2.dp))
-        Text(point.exampleMeaning, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        GrammarBody(point)
     }
+}
+
+/** "Grammar · N5", filling the row, and the Lesson → link when there's a page for it. */
+@Composable
+private fun RowScope.GrammarLevel(point: GrammarPoint, onLesson: (() -> Unit)?) {
+    Text(
+        ui("Grammar", "文法") + "  ·  " + levelLabel(point.level),
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.weight(1f),
+    )
+    if (onLesson != null) {
+        TextButton(onClick = onLesson) {
+            Text("Lesson →", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary)
+        }
+    }
+}
+
+@Composable
+private fun GrammarBody(point: GrammarPoint) {
+    Text(point.meaning, fontSize = 16.sp, lineHeight = 21.sp)
+    Text(point.note, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+    Text(point.example, fontFamily = Gothic, fontSize = 15.sp, modifier = Modifier.padding(top = 2.dp))
+    Text(point.exampleMeaning, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
 }
 
 // ------------------------------------------------------------------ end page
